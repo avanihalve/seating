@@ -1,0 +1,32 @@
+<h1>Edit</h1>
+
+<%= form_with model: @employee do |form| %>
+  <div>
+    <%= form.label :fname%><br>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div>
+    <%= form.label :lname %><br>
+    <%= form.text_field :lname %><br>
+  </div>
+
+   <div>
+    <%= form.label :office_id %><br>
+    <%= form.text_field :office_id %><br>
+  </div>
+
+  <div>
+    <%= form.label :seat_number %>
+    <%= form.select:seat_id, Seat.all.map{|s|s.id} %>
+  </div>
+
+   <div>
+    <%= form.label :contact %><br>
+    <%= form.text_field :contact %><br>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

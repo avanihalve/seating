@@ -1,0 +1,17 @@
+<center>
+  <p> Profile Photo </p>
+<p> <%= image_tag @employee.avatar, :size => "260x180" %></p>
+<strong> First Name: </strong><%= @employee.fname %> <br>
+
+<strong> Last Name: </strong><%= @employee.lname %> <br>
+
+<strong> Office-ID: </strong><%= @employee.office_id %> <br>
+
+<strong> Contact: </strong><%= @employee.contact %><br>
+
+<strong> Seat Number: </strong><%= @seat.seat_no %><br>
+
+
+<%= link_to "Back", employees_path %>
+
+</center> 
