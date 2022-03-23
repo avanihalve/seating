@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.css-style {
+border-radius: 50%;
+
+}
+
+.search{
+
+}

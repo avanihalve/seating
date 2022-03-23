@@ -1,28 +1,32 @@
 <center>
+<div class="card" style="width: 18rem;">
   <p> Profile Photo </p>
 <p> <%= image_tag @employee.avatar, :size => "260x180" if @employee.avatar.attached? %></p>
-<strong> First Name: </strong><%= @employee.fname %> <br>
+ <div class="card-body">
+  <h5 class="card-title"><%= @employee.fname %> <%= @employee.lname %></h5>
 
-<strong> Last Name: </strong><%= @employee.lname %> <br>
+<p class="card-text">
+<%= @employee.email %><br>
 
-<strong> Office-ID: </strong><%= @employee.office_id %> <br>
+Office ID: <%= @employee.office_id %> <br>
 
-<strong> Contact: </strong><%= @employee.contact %><br>
+Contact No: <%= @employee.contact %><br>
 
-<strong> Email: </strong><%= @employee.email %><br>
+Seat Number: <%= @seat.seat_no %><br>
+</p>
 
-<strong> Seat Number: </strong><%= @seat.seat_no %><br>
-
-
-<%= link_to "Back", employees_path %> &nbsp; &nbsp;
+<%= link_to "Back", employees_path, :class => "btn btn-primary" %> &nbsp; &nbsp;
  
- <% if current_user.role == "HR" %>
+ <% if current_user.role == "hr" %>
 
-<%= link_to "Edit", edit_employee_path(@employee) %> &nbsp; &nbsp;
+<%= link_to "Edit", edit_employee_path(@employee), :class => "btn btn-warning" %> &nbsp; &nbsp;
 <%= link_to "Destroy", employee_path(@employee), data: {
                     method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>
+                  }, :class => "btn btn-danger" %>
 <% end %>
 
-</center> 
+</div>
+</div>
+</center>
+

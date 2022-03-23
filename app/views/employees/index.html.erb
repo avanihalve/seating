@@ -2,49 +2,17 @@
 <h1>Employees Details</h1>
 <br>
 
-<form class="form-inline" action="/search" method="GET">
-    <div class="container" class="justify-content-center">
-    <div class="row height d-flex justify-content-center align-items-center">
-          <table>
-              <td><input type="/search" class="form-control" placeholder="Search by office ID" aria-label="Search" 
-                   name="query" method = "GET" class="form-control form-control-lg"> </td>
-              <td><button class="btn btn-primary col-md-12  " type="submit" >Search</button> </td>
-          </table>
-    </div>
-  </div>
-</form>
+
 
 <br>
- <strong>
-      First Name 
-     Last Name 
-      Office ID 
-      Action 
-    </strong> <br>
  <% @employees.each do |employee| %>
+    <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
+    <strong>Office Id: </strong><%= employee.office_id %> <br>
+    <%= link_to "Show", employee_path(employee), :class => "btn btn-secondary" %><br>
+    --------------------------------------------------------------<br>
 
- 
-   
-     <%= employee.fname %> 
-     <%= employee.lname %>
-    <%= employee.office_id %> <br>
-    <%= link_to "show", employee %><br>
-
-     <% if current_user.role == "HR" %>
-     
-     <%= link_to "Edit", edit_employee_path(employee) %>
-     <%= link_to "Destroy", employee_path(employee), data: {
-                    method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %><br>
     <% end %>
   
-  
-<% end %>
-<%#= link_to "All Employees", employee_showall_path %>
-<br>
-<% if current_user.role == "HR" %>
-<%= link_to "Create New Employee", new_employee_path %><br>
-<%= link_to "Create New Seat", new_seat_path %>
-<% end %>
 </center>
+
+

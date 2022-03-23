@@ -16,21 +16,76 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Seating Arrangement</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <%= image_tag("image.png", :alt => "logo", :size => "50x50", class: "css-style" )%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#"></a>
-        <a class="nav-link" href="#"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-      </div>
+        <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Employees
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" <%= link_to "View all Employees", employees_path %></a></li>
+            <% if user_signed_in? %>
+            <% if current_user.role == 'hr' %>
+            <li><a class="dropdown-item" <%= link_to "Add Employees", new_employee_path %></a></li>
+            <% end %>
+            <% end %>
+          </ul>
+        </li></li>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seats
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <li><a class="dropdown-item" <%= link_to "View all Seats", seats_path %></a></li>
+           <% if user_signed_in? %>
+            <% if current_user.role == 'hr' %>
+            <li><a class="dropdown-item" <%= link_to "Add new seats", new_seat_path %></a></li>
+            <% end %>
+            <% end %>
+          </ul>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<form class="d-flex">
+<p class="navbar-text" >
+<% if user_signed_in? %>
+  Welcome <strong><%= current_user.email %></strong>.
+<% end %>
+</p>
+</form>
+&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; 
+&emsp;&emsp; &emsp; &emsp; &emsp; &emsp;
+&emsp;    
+<% if user_signed_in? %>
+<div>
+<form class="form-inline" action="/search" method="GET">
+    <div class="container" class="justify-content-right">
+    <div class="row height d-flex justify-content-right align-items-right">
+          <table>
+              <td><input type="/search" class="form-control" placeholder="Search by office ID" aria-label="Search" 
+                   name="query" method = "GET" class="form-control form-control"> </td>
+              <td><button class="btn btn-secondary col-md-12" type="submit" >Search</button> </td>
+          </table>
     </div>
   </div>
+</form>
+</div>
+<% end %>
 </nav>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       
       
 <% if user_signed_in? %>
@@ -40,21 +95,9 @@
   <% when 'Employee' %>
     <h3>Welcome, Employee</h3>
   <% end %>
-<% else %>
-  <h3>Welcome</h3>
 <% end %>
 
 
-    <p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -63,6 +106,14 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-    <%= yield %>
+      <%= yield %>
+<footer class="bg-dark text-center text-white fixed-bottom">
+  <!-- LOGOUT -->
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-secondary"%>
+  <% end %>
+  <!-- Copyright -->
+</footer>
+
   </body>
 </html>
