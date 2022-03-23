@@ -16,21 +16,27 @@ class EmployeesController < ApplicationController
 		@employee = Employee.new(employee_param)
 
 		if @employee.save
+			EmployeeMailer.with(employee: @employee).welcome_email.deliver_now
 			redirect_to @employee
+			flash[:notice] = "Employee Created successfully!" 
 		else
+			flash[:errors] = "Seat is already reserved"
 			render :new
 		end
 	end
 
 	def edit
-		@employee = Employee.new
+		@employee = Employee.find(params[:id])
 	end
 
 	def update
-		@employee = Employee.new(params[:id])
+		@employee = Employee.find(params[:id])
 		if @employee.update(employee_param)
 			redirect_to @employee
+			flash[:notice] = "Employee Updated successfully!" 
+
 		else
+
 			render :edit  
 		end
 	end
@@ -46,11 +52,12 @@ class EmployeesController < ApplicationController
 		@employee.destroy
 
 		redirect_to root_path
+		flash[:notice] = "Employee Deleted successfully!" 
 	end
 
 	private
 
 	def employee_param
-		params.require(:employee).permit(:fname, :lname, :office_id, :contact, :avatar,  :seat_id, :search)
+		params.require(:employee).permit(:fname, :lname, :office_id, :contact, :avatar,  :seat_id, :search, :email)
 	end
 end

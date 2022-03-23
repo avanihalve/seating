@@ -1,6 +1,6 @@
 <center>
   <p> Profile Photo </p>
-<p> <%= image_tag @employee.avatar, :size => "260x180" %></p>
+<p> <%= image_tag @employee.avatar, :size => "260x180" if @employee.avatar.attached? %></p>
 <strong> First Name: </strong><%= @employee.fname %> <br>
 
 <strong> Last Name: </strong><%= @employee.lname %> <br>
@@ -9,9 +9,20 @@
 
 <strong> Contact: </strong><%= @employee.contact %><br>
 
+<strong> Email: </strong><%= @employee.email %><br>
+
 <strong> Seat Number: </strong><%= @seat.seat_no %><br>
 
 
-<%= link_to "Back", employees_path %>
+<%= link_to "Back", employees_path %> &nbsp; &nbsp;
+ 
+ <% if current_user.role == "HR" %>
+
+<%= link_to "Edit", edit_employee_path(@employee) %> &nbsp; &nbsp;
+<%= link_to "Destroy", employee_path(@employee), data: {
+                    method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+<% end %>
 
 </center> 

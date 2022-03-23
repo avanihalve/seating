@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+        ======= Employee details ======= <br>
+      </p>
+        <p>
+           <p>Welcome</p><br>
+            <%= @employee.fname %><br>
+          <h2>Email ID:</h2><%= @employee.email %><br>
+         
+          <h2>Contact Number:</h2><%= @employee.contact %><br>
+          <h2>Office Id:</h2><%= @employee.office_id %><br>
+        </p>
+    <p>
+    <h1>Your new alloted seat number is:</h1><br>
+    <%= @employee.seat.seat_no %>
+    </p>
+    <p>
+  </body>
+</html>

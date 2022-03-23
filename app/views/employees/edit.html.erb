@@ -2,31 +2,48 @@
 
 <%= form_with model: @employee do |form| %>
   <div>
-    <%= form.label :fname%><br>
+    <%= form.label :First_Name%><br>
     <%= form.text_field :fname %>
+  
   </div>
 
   <div>
-    <%= form.label :lname %><br>
+    <%= form.label :Last_Name %><br>
     <%= form.text_field :lname %><br>
+   
   </div>
 
    <div>
-    <%= form.label :office_id %><br>
+    <%= form.label :Office_ID %><br>
     <%= form.text_field :office_id %><br>
+ 
+  </div>
+
+
+   <div>
+    <%= form.label :Email_ID %><br>
+    <%= form.text_field :email %><br>
+ 
+  </div>
+
+   <div>
+    <%= form.label :Contact_Number %><br>
+    <%= form.text_field :contact %><br>
+   
   </div>
 
   <div>
-    <%= form.label :seat_number %>
-    <%= form.select:seat_id, Seat.all.map{|s|s.id} %>
-  </div>
+    <%= form.label :Seat_number %><br>
+    <%= form.select:seat_id ,Seat.all.map{|s|s.id} , :prompt => 'Select Seat Number'%>
+</div>
 
-   <div>
-    <%= form.label :contact %><br>
-    <%= form.text_field :contact %><br>
-  </div>
+  <div>
+    <%= form.label :Profile_Photo %><br>
+    <%= form.file_field :avatar %>
+  </div><br>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+

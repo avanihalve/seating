@@ -1,0 +1,14 @@
+<center>
+<h1>Seats</h1>
+<br>
+
+<br>
+ <% @seats.each do |seat| %>
+    
+    <%= seat.seat_no %> <br>
+    <%= link_to "show", seat %><br>
+  <% end %>
+
+<%= link_to "Create New Seat", new_seat_path %>
+
+</center>

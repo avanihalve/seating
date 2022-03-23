@@ -1,0 +1,13 @@
+<h1>Edit</h1>
+
+<%= form_with model: @seat do |form| %>
+  <div>
+    <%= form.label :Seat_no%><br>
+    <%= form.text_field :seat_no %>
+  
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

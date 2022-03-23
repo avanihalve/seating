@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
    root to: "employees#index"
     resources :employees 
-
+   resources :seats
     get '/search', to: "employees#search"
 
 end
