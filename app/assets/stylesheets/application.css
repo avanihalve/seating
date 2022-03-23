@@ -18,6 +18,8 @@ border-radius: 50%;
 
 }
 
-.search{
-
+.show_bg_color{
+    background-color: orange;
+    margin-right: 30%;
+    margin-left: 30%;
 }

@@ -1,4 +1,7 @@
-<h1>Edit</h1>
+
+<center>
+  <div class="show_bg_color">
+  <h1>Edit Employee Details</h1><br>
 
 <%= form_with model: @employee do |form| %>
   <div>
@@ -39,11 +42,13 @@
 
   <div>
     <%= form.label :Profile_Photo %><br>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, :class => "btn btn-secondary" %>
   </div><br>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+</center>
+</div>
 

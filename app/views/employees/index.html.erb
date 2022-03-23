@@ -1,5 +1,6 @@
 <center>
-<h1>Employees Details</h1>
+<div class="show_bg_color">
+<h1 style="text-align: center;">Employees Details</h1>
 <br>
 
 
@@ -8,10 +9,11 @@
  <% @employees.each do |employee| %>
     <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
     <strong>Office Id: </strong><%= employee.office_id %> <br>
-    <%= link_to "Show", employee_path(employee), :class => "btn btn-secondary" %><br>
+    <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
     --------------------------------------------------------------<br>
 
     <% end %>
+</div>
   
 </center>
 

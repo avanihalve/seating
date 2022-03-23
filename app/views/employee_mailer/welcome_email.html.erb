@@ -8,16 +8,15 @@
         ======= Employee details ======= <br>
       </p>
         <p>
-           <p>Welcome</p><br>
+           <p>Greeting</p><br>
             <%= @employee.fname %><br>
-          <h2>Email ID:</h2><%= @employee.email %><br>
-         
-          <h2>Contact Number:</h2><%= @employee.contact %><br>
-          <h2>Office Id:</h2><%= @employee.office_id %><br>
+          <h4>Email ID: <%= @employee.email %></h4><br>
+          <h4>Contact Number: <%= @employee.contact %></h4><br>
+          <h4>Office Id: <%= @employee.office_id %></h4><br>
         </p>
     <p>
-    <h1>Your new alloted seat number is:</h1><br>
-    <%= @employee.seat.seat_no %>
+    <h3>Your new alloted seat number is:</h3><br>
+    <h4><%= @employee.seat.seat_no %></h4>
     </p>
     <p>
   </body>
