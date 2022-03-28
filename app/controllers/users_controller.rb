@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-def create
+	def create
 		@user = User.new(user_param)
 
 		if @user.save

@@ -1,0 +1,2 @@
+module ApplyseatHelper
+end

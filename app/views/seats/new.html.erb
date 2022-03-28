@@ -1,17 +1,18 @@
 <center>
   <div class="show_bg_color">
-<h1>Add New Seat Numbers</h1>
+    <h1>Add New Seat Numbers</h1>
 
-<%= form_with model: @seat do |form| %>
-  <div>
-    <%= form.label :Seat_no%><br>
-    <%= form.text_field :seat_no %>
-  
-  </div><br>
-  <div>
-    <%= form.submit %>
+    <%= form_with model: @seat do |form| %>
+    <div>
+      <%= form.label :Seat_no%><br>
+      <%= form.text_field :seat_no %>
+      
+    </div><br>
+    <div>
+      <%= form.submit %>
+    </div>
+    
+    <% end %>
+
   </div>
-<% end %>
-
-</div>
 </center>

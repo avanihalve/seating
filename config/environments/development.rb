@@ -73,8 +73,8 @@ config.active_storage.service = :local
     port: 587,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "ks2956831@gmail.com",
-    password: "Ps281099@",
+    user_name: "avihalve@gmail.com",
+    password: "@vani2310",
     domain: "smtp.gmail.com",
     openssl_verify_mode: "none"
   }

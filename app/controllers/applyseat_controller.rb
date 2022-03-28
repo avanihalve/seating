@@ -1,0 +1,3 @@
+class ApplyseatController < ApplicationController
+
+end

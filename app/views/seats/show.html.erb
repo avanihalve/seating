@@ -1,0 +1,42 @@
+  <center>
+    <h1> Seat Details </h1>
+    <div class="card" style="width: 18rem;">
+
+     <div class="card-body">
+      <h5 class="card-title"></h5>
+
+      <p class="card-text">
+
+        <strong>Seat Number: </strong><%= @seat.seat_no %><br>
+        
+        <strong>Name: </strong><%= @seat.employee.fname if @seat.employee.present? %>
+        <%= @seat.employee.lname if @seat.employee.present? %><br>
+        <strong>Office_id: </strong><%= @seat.employee.office_id if @seat.employee.present? %><br>
+        <strong>Email: </strong><%= @seat.employee.email if @seat.employee.present? %><br>
+
+
+      </p>
+
+      <% if current_user.role == "hr" %>
+
+      <%= link_to "Edit", edit_seat_path(@seat), :class => "btn btn-warning" %> &nbsp; &nbsp;
+
+      <%= link_to "Destroy", seat_path(@seat), data: {
+        method: :delete,
+        turbo_confirm: "Are you sure?"
+      }, :class => "btn btn-danger" %><br>
+
+
+      <% end %><br>
+
+      <%= link_to "Back", seats_path, :class => "btn btn-primary" %> &nbsp;
+
+      <% if current_user.role == "employee" %>
+      
+      <%= button_to "Apply for Seat", :controller => "seats", :action => "send_mail", :id => @seat.id%><br><br>
+      <% end %>
+
+    </div>
+  </div>
+</center>
+

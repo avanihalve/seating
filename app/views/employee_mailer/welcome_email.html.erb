@@ -10,13 +10,13 @@
         <p>
            <p>Greeting</p><br>
             <%= @employee.fname %><br>
-          <h4>Email ID: <%= @employee.email %></h4><br>
-          <h4>Contact Number: <%= @employee.contact %></h4><br>
-          <h4>Office Id: <%= @employee.office_id %></h4><br>
+          Email ID: <%= @employee.email %><br>
+          Contact Number: <%= @employee.contact %><br>
+          Office Id: <%= @employee.office_id %><br>
         </p>
     <p>
-    <h3>Your new alloted seat number is:</h3><br>
-    <h4><%= @employee.seat.seat_no %></h4>
+    Your new alloted seat number is:<br>
+    <%= @employee.seat.seat_no %>
     </p>
     <p>
   </body>

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :seats
     get '/search', to: "employees#search"
 
+     post '/send_mail', to: 'seats#send_mail'
+
 end

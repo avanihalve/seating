@@ -1,16 +1,27 @@
 <center>
     <div class="show_bg_color">
-<h1>Total Seats</h1>
-<br>
+        <h1>Total Seats</h1>
+        <br>
 
-<br>
- <% @seats.each do |seat| %>
-     <strong>Seat Number: </strong> <%= seat.seat_no %> <br>
-    ---------------------------------------------------<br>
-  <% end %>
+        <br>
 
-  <%= link_to "Add New Seats", new_seat_path, :class => "btn btn-primary" %>
-</div>
+        <% unless @employee.present? %>
+
+
+        <% @seats.each do |seat| %>
+        
+        <strong>Seat Number: </strong> <%= seat.seat_no %> <br>
+
+        <%= link_to "Show", seat_path(seat), :class => "btn btn-dark" %><br>
+        
+        ---------------------------------------------------<br>
+        <% end %>
+        <% end %>
+
+        <% if current_user.role == 'hr' %>
+        <%= link_to "Add New Seats", new_seat_path, :class => "btn btn-dark" %>
+        <% end %>
+    </div>
 </center>
 
 

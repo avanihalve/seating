@@ -17,15 +17,17 @@ class EmployeesController < ApplicationController
 
 		if @employee.save
 			EmployeeMailer.with(employee: @employee).welcome_email.deliver_now
+			
 			redirect_to @employee
 			flash[:notice] = "Employee Created successfully!" 
 		else
-			flash[:errors] = "Seat is already reserved"
 			render :new
+			flash[:notice] = "Seat is already reserved"
 		end
 	end
 
 	def edit
+
 		@employee = Employee.find(params[:id])
 	end
 

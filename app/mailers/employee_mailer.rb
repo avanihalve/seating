@@ -1,5 +1,5 @@
 class EmployeeMailer < ApplicationMailer
-default from: 'ks2956831@gmail.com'
+default from: 'avihalve@gmail.com'
 
 def welcome_email
     @employee = params[:employee]
