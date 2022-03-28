@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :employees
+  #has_many :employees
 
   enum role: {employee: 0, hr: 1}
 

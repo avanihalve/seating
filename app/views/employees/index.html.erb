@@ -1,21 +1,30 @@
 <center>
-<div class="show_bg_color">
-<h1 style="text-align: center;">Employees Details</h1>
-<br>
+
+  <% if user_signed_in? %>
+  <% case current_user.role %>
+  <% when 'hr' %>
+  <h3>Welcome, HR</h3>
+  <% when 'employee' %>
+  <h3>Welcome, Employee</h3>
+  <% end %>
+  <% end %><br>
+  <div class="show_bg_color">
+   <h1 style="text-align: center;">Employees Details</h1>
+   <br>
 
 
 
-<br>
+   <br>
 
- <% @employees.each do |employee| %>
-    <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
-    <strong>Office Id: </strong><%= employee.office_id %> <br>
-    <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
-    --------------------------------------------------------------<br>
+   <% @employees.each do |employee| %>
+   <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
+   <strong>Office Id: </strong><%= employee.office_id %> <br>
+   <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
+   --------------------------------------------------------------<br>
 
-    <% end %>
+   <% end %>
 </div>
-  
+
 </center>
 
 

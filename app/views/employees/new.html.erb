@@ -1,3 +1,5 @@
+      <% if current_user.role == "hr" %>
+  
 <center>
   <div class="show_bg_color">
   <h1>Add Employee</h1>
@@ -48,3 +50,8 @@
 <% end %>
 </div>
 </center>
+<%end%>
+
+<% if current_user.role == "employee" %>
+  <h4>Only admin can add the employee!</h4>
+<% end %>

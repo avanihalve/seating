@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+	#before_action :authenticate_user!
 	def index
 		@employees = Employee.all
 	end
@@ -57,9 +58,23 @@ class EmployeesController < ApplicationController
 		flash[:notice] = "Employee Deleted successfully!" 
 	end
 
+	def send_mail
+
+		@employee = current_user
+		#@data = params[:text1]
+		ApplyseatMailer.with(employee: @employee).send_apply_mail.deliver_now 
+
+	    #render :text => "Email send"
+	    flash[:notice] = "Mail sent to successfully!" 
+	end
+
+	# def there
+	# @
+	# end
+
 	private
 
 	def employee_param
-		params.require(:employee).permit(:fname, :lname, :office_id, :contact, :avatar,  :seat_id, :search, :email)
+		params.require(:employee).permit(:fname, :lname, :office_id, :contact, :avatar,  :seat_id, :search, :email, :text1)
 	end
 end
